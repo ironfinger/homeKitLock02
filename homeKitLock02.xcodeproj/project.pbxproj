@@ -8,22 +8,27 @@
 
 /* Begin PBXBuildFile section */
 		E35B232D1F4226810029833C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B232C1F4226810029833C /* AppDelegate.swift */; };
-		E35B232F1F4226810029833C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B232E1F4226810029833C /* ViewController.swift */; };
+		E35B232F1F4226810029833C /* MyAccessoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */; };
 		E35B23321F4226810029833C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35B23301F4226810029833C /* Main.storyboard */; };
 		E35B23351F4226810029833C /* homeKitLock02.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E35B23331F4226810029833C /* homeKitLock02.xcdatamodeld */; };
 		E35B23371F4226810029833C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E35B23361F4226810029833C /* Assets.xcassets */; };
 		E35B233A1F4226810029833C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35B23381F4226810029833C /* LaunchScreen.storyboard */; };
+		E35B23421F4228B10029833C /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B23411F4228B10029833C /* DiscoveryViewController.swift */; };
+		E35B23461F4229030029833C /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35B23451F4229030029833C /* HomeKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E35B23291F4226810029833C /* homeKitLock02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homeKitLock02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35B232C1F4226810029833C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E35B232E1F4226810029833C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccessoriesViewController.swift; sourceTree = "<group>"; };
 		E35B23311F4226810029833C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E35B23341F4226810029833C /* homeKitLock02.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = homeKitLock02.xcdatamodel; sourceTree = "<group>"; };
 		E35B23361F4226810029833C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E35B23391F4226810029833C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E35B233B1F4226810029833C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E35B23411F4228B10029833C /* DiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
+		E35B23431F4229030029833C /* homeKitLock02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = homeKitLock02.entitlements; sourceTree = "<group>"; };
+		E35B23451F4229030029833C /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E35B23461F4229030029833C /* HomeKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +48,7 @@
 			children = (
 				E35B232B1F4226810029833C /* homeKitLock02 */,
 				E35B232A1F4226810029833C /* Products */,
+				E35B23441F4229030029833C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,8 +63,10 @@
 		E35B232B1F4226810029833C /* homeKitLock02 */ = {
 			isa = PBXGroup;
 			children = (
+				E35B23431F4229030029833C /* homeKitLock02.entitlements */,
 				E35B232C1F4226810029833C /* AppDelegate.swift */,
-				E35B232E1F4226810029833C /* ViewController.swift */,
+				E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */,
+				E35B23411F4228B10029833C /* DiscoveryViewController.swift */,
 				E35B23301F4226810029833C /* Main.storyboard */,
 				E35B23361F4226810029833C /* Assets.xcassets */,
 				E35B23381F4226810029833C /* LaunchScreen.storyboard */,
@@ -65,6 +74,14 @@
 				E35B23331F4226810029833C /* homeKitLock02.xcdatamodeld */,
 			);
 			path = homeKitLock02;
+			sourceTree = "<group>";
+		};
+		E35B23441F4229030029833C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E35B23451F4229030029833C /* HomeKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -99,6 +116,11 @@
 				TargetAttributes = {
 					E35B23281F4226810029833C = {
 						CreatedOnToolsVersion = 9.0;
+						SystemCapabilities = {
+							com.apple.HomeKit = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -138,9 +160,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E35B232F1F4226810029833C /* ViewController.swift in Sources */,
+				E35B232F1F4226810029833C /* MyAccessoriesViewController.swift in Sources */,
 				E35B23351F4226810029833C /* homeKitLock02.xcdatamodeld in Sources */,
 				E35B232D1F4226810029833C /* AppDelegate.swift in Sources */,
+				E35B23421F4228B10029833C /* DiscoveryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +300,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = homeKitLock02/homeKitLock02.entitlements;
 				DEVELOPMENT_TEAM = 93HE2GWDEW;
 				INFOPLIST_FILE = homeKitLock02/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -291,6 +315,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = homeKitLock02/homeKitLock02.entitlements;
 				DEVELOPMENT_TEAM = 93HE2GWDEW;
 				INFOPLIST_FILE = homeKitLock02/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
