@@ -38,10 +38,33 @@ class DiscoveryViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell()
+            let cell = UITableViewCell()
+            let accessory = accessories[indexPath.row] as HMAccessory
+            cell.textLabel?.text = accessory.name
+            return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let accessory = accessories[indexPath.row] as HMAccessory
-        cell.textLabel?.text = accessory.name
-        return cell
+        print("Pairing \(accessory.name)")
+        
+        if let room = homeManager.primaryHome?.rooms.first as HMRoom? {
+            homeManager.primaryHome?.addAccessory(accessory, completionHandler: { (error) in
+                if error != nil {
+                    print("We couldn't assign accessory \(error)")
+                }else{
+                    self.homeManager.primaryHome?.assignAccessory(accessory, to: room, completionHandler: { (error) in
+                        if error != nil {
+                            print("We have an erroro with assigning the accessory to a room: \(error)")
+                        }else{
+                            print("accessory assigned to \(room.name)")
+                        }
+                    })
+                }
+            })
+        }else{
+            self.performSegue(withIdentifier: "discoveryToAddHomeSegue", sender: nil)
+        }
     }
     
     func accessoryBrowser(_ browser: HMAccessoryBrowser, didFindNewAccessory accessory: HMAccessory) {

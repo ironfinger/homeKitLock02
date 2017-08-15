@@ -70,11 +70,63 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="wd7-Ve-bXe" id="Ete-wA-iaE"/>
+                        <segue destination="Jeu-WG-jKv" kind="presentation" identifier="discoveryToAddHomeSegue" id="y0z-aR-zYf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb6-dV-BKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1025" y="160"/>
+        </scene>
+        <!--Add Home View Controller-->
+        <scene sceneID="Xfr-bK-gar">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="Jeu-WG-jKv" customClass="AddHomeViewController" customModule="homeKitLock02" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ydZ-Lz-gZD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XeH-yc-KAj">
+                                <rect key="frame" x="16" y="20" width="343" height="266"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="doO-4M-45f">
+                                        <rect key="frame" x="8" y="8" width="327" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QMJ-Hx-tBh">
+                                        <rect key="frame" x="8" y="66" width="327" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TWz-eS-bve">
+                                        <rect key="frame" x="8" y="205" width="327" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Add Home"/>
+                                        <connections>
+                                            <action selector="addHomeBtn:" destination="Jeu-WG-jKv" eventType="touchUpInside" id="8fQ-9i-wbJ"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.92208222811671092" green="0.92208222811671092" blue="0.92208222811671092" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.17037259615384615" green="0.17037259615384615" blue="0.17037259615384615" alpha="0.46836656441717789" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="siR-Wg-Edy"/>
+                    </view>
+                    <connections>
+                        <outlet property="homeNameTextField" destination="doO-4M-45f" id="QaY-Ri-Y7q"/>
+                        <outlet property="roomNameTextField" destination="QMJ-Hx-tBh" id="BOo-Y0-nZS"/>
+                        <outlet property="subView" destination="XeH-yc-KAj" id="Ij7-CW-1bY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="33F-0h-MCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1704.8" y="158.77061469265368"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8pp-Kd-LBc">
@@ -82,6 +134,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BSX-GD-SF5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vN7-du-exd">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
