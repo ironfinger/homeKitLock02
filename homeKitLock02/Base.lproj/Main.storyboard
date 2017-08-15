@@ -104,11 +104,44 @@
                     <connections>
                         <outlet property="navBar" destination="kpV-N9-3dX" id="IVs-mH-Yeg"/>
                         <outlet property="tableView" destination="z7P-Mp-vT2" id="FHS-rb-Qf5"/>
+                        <segue destination="EdY-xS-M3o" kind="show" id="Ouk-Zg-s8g"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnz-IK-VuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-351" y="893"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="bqn-2y-Gsv">
+            <objects>
+                <viewController id="EdY-xS-M3o" customClass="CharacteristicsViewController" customModule="homeKitLock02" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="RqP-Ny-t6r">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NBG-zP-SOG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Yr9-K5-t4I" firstAttribute="trailing" secondItem="NBG-zP-SOG" secondAttribute="trailing" id="INo-LF-9AQ"/>
+                            <constraint firstItem="Yr9-K5-t4I" firstAttribute="bottom" secondItem="NBG-zP-SOG" secondAttribute="bottom" id="Rpu-he-XXn"/>
+                            <constraint firstItem="NBG-zP-SOG" firstAttribute="top" secondItem="Yr9-K5-t4I" secondAttribute="top" id="avS-iA-Z1n"/>
+                            <constraint firstItem="NBG-zP-SOG" firstAttribute="leading" secondItem="Yr9-K5-t4I" secondAttribute="leading" id="hav-WR-UpA"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Yr9-K5-t4I"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="Rdo-c0-Ir3"/>
+                    <connections>
+                        <outlet property="navBar" destination="Rdo-c0-Ir3" id="AYl-dX-Fuv"/>
+                        <outlet property="tableView" destination="NBG-zP-SOG" id="Yt0-Lv-AEU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aA7-yY-ZvU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-351" y="1611"/>
         </scene>
         <!--Add Home View Controller-->
         <scene sceneID="Xfr-bK-gar">

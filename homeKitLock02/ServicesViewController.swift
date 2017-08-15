@@ -9,7 +9,7 @@
 import UIKit
 import HomeKit
 
-class ServicesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ServicesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HMAccessoryDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var navBar: UINavigationItem!
@@ -50,12 +50,24 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let service = services[indexPath.row]
+        
         cell.textLabel?.text = service.name
+        cell.detailTextLabel?.text = "details"
         return cell
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let service = services[indexPath.row]
+        service.characteristics[1].writeValue(1, completionHandler: { (error) in
+            if error != nil {
+                print(error)
+            }else{
+                print("We changed a value!")
+            }
+        })
+    }
+    
+    func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
+        print("Change")
     }
 }
