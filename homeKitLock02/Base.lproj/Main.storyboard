@@ -40,6 +40,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="7nl-MH-Oqh" id="Go2-YV-3uG"/>
+                        <segue destination="hK5-g8-3cE" kind="show" identifier="ServicesVCSegue" id="Mit-5n-lQt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -70,11 +71,102 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="wd7-Ve-bXe" id="Ete-wA-iaE"/>
+                        <segue destination="lHh-UD-QP7" kind="presentation" identifier="discoveryToAddHomeSegue" id="qMp-ia-fFN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gb6-dV-BKd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1025" y="160"/>
+            <point key="canvasLocation" x="1076" y="160"/>
+        </scene>
+        <!--My Accessory-->
+        <scene sceneID="sjT-MM-lvs">
+            <objects>
+                <viewController id="hK5-g8-3cE" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tsG-eO-tra">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jmv-MG-aMk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jmv-MG-aMk" firstAttribute="top" secondItem="KpQ-FW-PZ9" secondAttribute="top" id="M0x-zg-SfA"/>
+                            <constraint firstItem="KpQ-FW-PZ9" firstAttribute="trailing" secondItem="jmv-MG-aMk" secondAttribute="trailing" id="W8Q-Ia-BWv"/>
+                            <constraint firstItem="jmv-MG-aMk" firstAttribute="leading" secondItem="KpQ-FW-PZ9" secondAttribute="leading" id="i4M-TZ-Mck"/>
+                            <constraint firstItem="KpQ-FW-PZ9" firstAttribute="bottom" secondItem="jmv-MG-aMk" secondAttribute="bottom" id="yLQ-t2-4yO"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="KpQ-FW-PZ9"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="My Accessory" id="oaZ-hv-MUn"/>
+                    <connections>
+                        <outlet property="navBar" destination="oaZ-hv-MUn" id="fvw-6b-szw"/>
+                        <outlet property="tableView" destination="jmv-MG-aMk" id="EtY-KB-PJ0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NEv-5g-zh5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-351" y="896"/>
+        </scene>
+        <!--New Home View Controller-->
+        <scene sceneID="wMh-AI-NDm">
+            <objects>
+                <viewController modalPresentationStyle="overCurrentContext" id="lHh-UD-QP7" customClass="NewHomeViewController" customModule="homeKitLock02" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2Z7-Rf-m4i">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IrK-If-FWW">
+                                <rect key="frame" x="67" y="20" width="240" height="351"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fY6-YR-lze">
+                                        <rect key="frame" x="8" y="52" width="224" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ZTd-cH-1f9">
+                                        <rect key="frame" x="8" y="160" width="224" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ro1-4l-IE0">
+                                        <rect key="frame" x="37" y="321" width="166" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Create Home and Room"/>
+                                        <connections>
+                                            <action selector="createHomeBtn:" destination="lHh-UD-QP7" eventType="touchUpInside" id="2TU-OB-DCm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="6Sz-8o-gcN"/>
+                                    <constraint firstAttribute="height" constant="351" id="EGP-Is-tg7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.81201301392572944" green="0.81201301392572944" blue="0.81201301392572944" alpha="0.093905770705521474" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="IrK-If-FWW" firstAttribute="centerX" secondItem="2Z7-Rf-m4i" secondAttribute="centerX" id="H2m-zM-YQG"/>
+                            <constraint firstItem="IrK-If-FWW" firstAttribute="top" secondItem="lNV-cq-2mz" secondAttribute="top" id="nke-4v-kin"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lNV-cq-2mz"/>
+                    </view>
+                    <connections>
+                        <outlet property="homeNameTextField" destination="fY6-YR-lze" id="iq6-G1-b86"/>
+                        <outlet property="roomNameTextField" destination="ZTd-cH-1f9" id="WXW-z6-AjX"/>
+                        <outlet property="subView" destination="IrK-If-FWW" id="bel-YI-ZCC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QEn-Yx-4Tl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="322" y="896"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8pp-Kd-LBc">
@@ -82,6 +174,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="BSX-GD-SF5" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vN7-du-exd">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
