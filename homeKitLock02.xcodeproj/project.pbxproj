@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E326DC4B1F42F7D30061D692 /* AddHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DC4A1F42F7D30061D692 /* AddHomeViewController.swift */; };
+		E326DC4D1F42FB8C0061D692 /* ServicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E326DC4C1F42FB8C0061D692 /* ServicesViewController.swift */; };
 		E35B232D1F4226810029833C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B232C1F4226810029833C /* AppDelegate.swift */; };
 		E35B232F1F4226810029833C /* MyAccessoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */; };
 		E35B23321F4226810029833C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35B23301F4226810029833C /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		E326DC4A1F42F7D30061D692 /* AddHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHomeViewController.swift; sourceTree = "<group>"; };
+		E326DC4C1F42FB8C0061D692 /* ServicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesViewController.swift; sourceTree = "<group>"; };
 		E35B23291F4226810029833C /* homeKitLock02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homeKitLock02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35B232C1F4226810029833C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccessoriesViewController.swift; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 				E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */,
 				E35B23411F4228B10029833C /* DiscoveryViewController.swift */,
 				E326DC4A1F42F7D30061D692 /* AddHomeViewController.swift */,
+				E326DC4C1F42FB8C0061D692 /* ServicesViewController.swift */,
 				E35B23301F4226810029833C /* Main.storyboard */,
 				E35B23361F4226810029833C /* Assets.xcassets */,
 				E35B23381F4226810029833C /* LaunchScreen.storyboard */,
@@ -163,6 +166,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E326DC4D1F42FB8C0061D692 /* ServicesViewController.swift in Sources */,
 				E326DC4B1F42F7D30061D692 /* AddHomeViewController.swift in Sources */,
 				E35B232F1F4226810029833C /* MyAccessoriesViewController.swift in Sources */,
 				E35B23351F4226810029833C /* homeKitLock02.xcdatamodeld in Sources */,

@@ -25,13 +25,14 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
-    // MARKS: Table View
+    // MARK: Table View
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var totalAccessories = 0
@@ -44,7 +45,7 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let accessory = homeManager.primaryHome!.accessories[indexPath.row]
-        let reachable = accessory.isReachable
+        //let reachable = accessory.isReachable
         //let uuid:String = String(accessory.uniqueIdentifier)
         cell.textLabel?.text = accessory.name
         //if reachable == true {
@@ -57,6 +58,16 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print(homeManager.primaryHome!.accessories[indexPath.row])
+        self.performSegue(withIdentifier: "ServicesVCSegue", sender: indexPath.row)
+    }
+    
+    // MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ServicesVCSegue" {
+            let nextVC = segue.destination as? ServicesViewController
+            nextVC?.selectedAccessoryIndex = sender as! Int
+        }
     }
     
     override func didReceiveMemoryWarning() {
