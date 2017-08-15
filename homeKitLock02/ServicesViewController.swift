@@ -17,6 +17,7 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
     let homeManager = HMHomeManager()
     
     var selectedAccessory = HMAccessory()
+    var servicesLALALA = [HMService]()
     var selectedAccessoryIndex = 0
     
     override func viewDidLoad() {
@@ -24,24 +25,36 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
         // Do any additional setup after loading the view.
         tableView.dataSource = self
         tableView.delegate = self
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         for item in homeManager.primaryHome!.accessories {
             if item.name == homeManager.primaryHome!.accessories[selectedAccessoryIndex].name{
                 selectedAccessory = item
+                for i in item.services  {
+                    print("Iteration \(i.name)")
+                    servicesLALALA.append(i)
+                }
             }
         }
         navBar.title = selectedAccessory.name
+        tableView.reloadData()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        //for item in homeManager.primaryHome!.accessories {
+         //   print("Accessory")
+        //}
+        print("This accessory (\(selectedAccessory.name)) has \(selectedAccessory.services.count) services")
+        print("number of rows in section \(servicesLALALA.count)")
+        return servicesLALALA.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        cell.textLabel?.text = "Hello"
+        let service = servicesLALALA[indexPath.row]
+        cell.textLabel?.text = service.name //selectedAccessory.name
         return cell
     }
     
