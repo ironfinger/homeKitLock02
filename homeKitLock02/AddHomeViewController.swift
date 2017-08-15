@@ -25,19 +25,19 @@ class AddHomeViewController: UIViewController {
     @IBAction func addHomeBtn(_ sender: Any) {
         homeManager.addHome(withName: homeNameTextField.text!) { (home, error) in
             if error != nil {
-                print("We couldn't add a home \(error)")
+                print("We couldn't add a home \(String(describing: error))")
             }else{
                 if let newHome = home {
                     newHome.addRoom(withName: self.roomNameTextField.text!, completionHandler: { (room, error) in
                         if error != nil {
-                            print("We couldn't create a room: \(error)")
+                            print("We couldn't create a room: \(String(describing: error))")
                         }else{
                             
                         }
                     })
                     self.homeManager.updatePrimaryHome(newHome, completionHandler: { (error) in
                         if error != nil {
-                            print("We couldn't updatePrimaryHome: \(error)")
+                            print("We couldn't updatePrimaryHome: \(String(describing: error))")
                         }
                     })
                 }
