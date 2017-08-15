@@ -54,6 +54,18 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "CharacteristicVCSegue", sender: indexPath.row)
+    }
+    
+    // MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextVC = segue.destination as? CharacteristicsViewController
+        nextVC?.selectedAccessoryIndex = selectedAccessoryIndex
+        nextVC?.selectedServiceIndex = sender as! Int
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

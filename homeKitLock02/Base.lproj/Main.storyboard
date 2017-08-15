@@ -104,6 +104,7 @@
                     <connections>
                         <outlet property="navBar" destination="kpV-N9-3dX" id="IVs-mH-Yeg"/>
                         <outlet property="tableView" destination="z7P-Mp-vT2" id="FHS-rb-Qf5"/>
+                        <segue destination="C1K-rv-Wva" kind="show" identifier="CharacteristicVCSegue" id="jkJ-7y-AGR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnz-IK-VuI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -160,6 +161,53 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="33F-0h-MCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="342" y="893"/>
+        </scene>
+        <!--Characteristics View Controller-->
+        <scene sceneID="Sbk-wd-RNg">
+            <objects>
+                <viewController id="C1K-rv-Wva" customClass="CharacteristicsViewController" customModule="homeKitLock02" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xFJ-zk-jE6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KRv-bs-FuV">
+                                <rect key="frame" x="16" y="103" width="343" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Service State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdF-wh-LhD">
+                                <rect key="frame" x="16" y="184" width="343" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="25y-cl-ZJw">
+                                <rect key="frame" x="16" y="265" width="343" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <segments>
+                                    <segment title="Unsecured"/>
+                                    <segment title="Secured"/>
+                                </segments>
+                                <connections>
+                                    <action selector="serviceStateChanged:" destination="C1K-rv-Wva" eventType="valueChanged" id="8GA-VO-avi"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="xX3-lI-DHs"/>
+                    </view>
+                    <connections>
+                        <outlet property="serviceNameLbl" destination="KRv-bs-FuV" id="CjO-0J-MDa"/>
+                        <outlet property="serviceStateLbl" destination="gdF-wh-LhD" id="13U-Y7-tDU"/>
+                        <outlet property="serviceStateSegmentControl" destination="25y-cl-ZJw" id="j6d-gu-22t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x1L-ze-rwC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-351.19999999999999" y="1586.3568215892055"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8pp-Kd-LBc">

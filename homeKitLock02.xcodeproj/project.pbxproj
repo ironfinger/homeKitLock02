@@ -17,6 +17,7 @@
 		E35B233A1F4226810029833C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35B23381F4226810029833C /* LaunchScreen.storyboard */; };
 		E35B23421F4228B10029833C /* DiscoveryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B23411F4228B10029833C /* DiscoveryViewController.swift */; };
 		E35B23461F4229030029833C /* HomeKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E35B23451F4229030029833C /* HomeKit.framework */; };
+		E3FC33391F4346BB007AB485 /* CharacteristicsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3FC33381F4346BB007AB485 /* CharacteristicsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		E35B23411F4228B10029833C /* DiscoveryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryViewController.swift; sourceTree = "<group>"; };
 		E35B23431F4229030029833C /* homeKitLock02.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = homeKitLock02.entitlements; sourceTree = "<group>"; };
 		E35B23451F4229030029833C /* HomeKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HomeKit.framework; path = System/Library/Frameworks/HomeKit.framework; sourceTree = SDKROOT; };
+		E3FC33381F4346BB007AB485 /* CharacteristicsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 				E35B23411F4228B10029833C /* DiscoveryViewController.swift */,
 				E326DC4A1F42F7D30061D692 /* AddHomeViewController.swift */,
 				E326DC4C1F42FB8C0061D692 /* ServicesViewController.swift */,
+				E3FC33381F4346BB007AB485 /* CharacteristicsViewController.swift */,
 				E35B23301F4226810029833C /* Main.storyboard */,
 				E35B23361F4226810029833C /* Assets.xcassets */,
 				E35B23381F4226810029833C /* LaunchScreen.storyboard */,
@@ -170,6 +173,7 @@
 				E326DC4B1F42F7D30061D692 /* AddHomeViewController.swift in Sources */,
 				E35B232F1F4226810029833C /* MyAccessoriesViewController.swift in Sources */,
 				E35B23351F4226810029833C /* homeKitLock02.xcdatamodeld in Sources */,
+				E3FC33391F4346BB007AB485 /* CharacteristicsViewController.swift in Sources */,
 				E35B232D1F4226810029833C /* AppDelegate.swift in Sources */,
 				E35B23421F4228B10029833C /* DiscoveryViewController.swift in Sources */,
 			);
