@@ -45,14 +45,14 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
         let accessory = homeManager.primaryHome!.accessories[indexPath.row]
-        //let reachable = accessory.isReachable
+        let reachable = accessory.isReachable
         //let uuid:String = String(accessory.uniqueIdentifier)
-        cell.textLabel?.text = accessory.name
-        //if reachable == true {
-        //cell.detailTextLabel?.text = "Is reachable"
-        // }else{
-        // cell.detailTextLabel?.text = "Isn't reachable"
-        //}
+        
+        if reachable == true {
+            cell.textLabel?.text = "\(accessory.name): Accessory is reachable"
+        }else{
+            cell.textLabel?.text = "\(accessory.name): Accessory is not reachable"
+        }
         return cell
     }
     
