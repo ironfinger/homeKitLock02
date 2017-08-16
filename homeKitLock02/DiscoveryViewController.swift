@@ -47,7 +47,7 @@ class DiscoveryViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let accessory = accessories[indexPath.row] as HMAccessory
         print("Pairing \(accessory.name)")
-        
+        // browser.stopSearchingForNewAccessories() // Stops searching for new accessories as soon as somebody finds an accessory they want.
         if let room = homeManager.primaryHome?.rooms.first as HMRoom? {
             homeManager.primaryHome?.addAccessory(accessory, completionHandler: { (error) in
                 if error != nil {

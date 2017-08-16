@@ -9,7 +9,7 @@
 import UIKit
 import HomeKit
 
-class CharacteristicsViewController: UIViewController {
+class CharacteristicsViewController: UIViewController, HMAccessoryDelegate {
 
     @IBOutlet weak var serviceNameLbl: UILabel!
     @IBOutlet weak var serviceStateLbl: UILabel!
@@ -21,11 +21,11 @@ class CharacteristicsViewController: UIViewController {
     var selectedServiceIndex = 0
     var selectedAccessory = HMAccessory()
     var selectedService = HMService()
+    var lockedState = "" // This is used to see the actual state of the lock.
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,26 +39,36 @@ class CharacteristicsViewController: UIViewController {
                 }
             }
         }
-        
+        serviceNameLbl.text = selectedService.name
+        selectedAccessory.delegate = self
+        setServiceState()
+    }
+    
+    func setServiceState() {
         for item in selectedService.characteristics {
             let characteristic = item as HMCharacteristic
             if characteristic.characteristicType == HMCharacteristicTypeCurrentLockMechanismState {
-                
+                characteristic.readValue(completionHandler: { (error) in
+                    let theValue = String(describing: characteristic.value!)
+                    if theValue == "0" {
+                        self.serviceStateLbl.text = "Locked"
+                        self.serviceStateSegmentControl.selectedSegmentIndex = 1
+                    }else{
+                        self.serviceStateLbl.text = "Un-Locked"
+                        self.serviceStateSegmentControl.selectedSegmentIndex = 0
+                    }
+                })
             }
         }
-        
-        
-        serviceNameLbl.text = selectedService.name
     }
     
     @IBAction func serviceStateChanged(_ sender: Any) {
         switch serviceStateSegmentControl.selectedSegmentIndex
         {
         case 0:
-                for item in selectedService.characteristics {
+                for item in selectedService.characteristics { // To cycle through all the characteristics and find the specific characteristic that we want.
                     print("Iteration")
                     let characteristic = item as HMCharacteristic
-                    
                     if characteristic.characteristicType == HMCharacteristicTypeTargetLockMechanismState { // To check to see if the characteristic we found is a target lock.
                         characteristic.writeValue(0, completionHandler: { (error) in
                             if error != nil{
@@ -70,10 +80,9 @@ class CharacteristicsViewController: UIViewController {
                     }
                 }
         case 1:
-            for item in selectedService.characteristics {
+            for item in selectedService.characteristics { // To cycle through all the characteristics and find the specific characteristic that we want.😀
                 print("Iteration")
                 let characteristic = item as HMCharacteristic
-                
                 if characteristic.characteristicType == HMCharacteristicTypeTargetLockMechanismState { // To check to see if the characteric we found is a target lock.
                     characteristic.writeValue(1, completionHandler: { (error) in
                         if error != nil {
@@ -82,8 +91,6 @@ class CharacteristicsViewController: UIViewController {
                             print("We set the target value to 1")
                         }
                     })
-                    
-                    
                 }
             }
         default:
@@ -99,22 +106,30 @@ class CharacteristicsViewController: UIViewController {
                 print("Successfully removed accessory")
             }
         }
-        performSegue(withIdentifier: "backToMyAccessoriesSegue", sender: nil)
+        performSegue(withIdentifier: "backToMyAccessoriesSegue", sender: nil) // Sends the user back to the my accessories view controller.
+    }
+    
+    // MARK: Update
+    
+    func accessory(_ accessory: HMAccessory, service: HMService, didUpdateValueFor characteristic: HMCharacteristic) {
+        if characteristic.characteristicType == HMCharacteristicTypeCurrentLockMechanismState {
+            characteristic.readValue(completionHandler: { (error) in
+                let theValue = String(describing: characteristic.value!)
+                print("the value \(theValue)")
+                if theValue == "0"{
+                    print("The value is 0")
+                    self.serviceStateLbl.text = "Locked"
+                }else if theValue == "1"{
+                    print("The value is 1")
+                    self.serviceStateLbl.text = "Un-Locked"
+                }
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
+
