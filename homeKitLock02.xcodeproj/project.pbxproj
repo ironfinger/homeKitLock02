@@ -71,11 +71,8 @@
 			children = (
 				E35B23431F4229030029833C /* homeKitLock02.entitlements */,
 				E35B232C1F4226810029833C /* AppDelegate.swift */,
-				E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */,
-				E35B23411F4228B10029833C /* DiscoveryViewController.swift */,
-				E326DC4A1F42F7D30061D692 /* AddHomeViewController.swift */,
-				E326DC4C1F42FB8C0061D692 /* ServicesViewController.swift */,
-				E3FC33381F4346BB007AB485 /* CharacteristicsViewController.swift */,
+				E3F55B6B1F450E5500E09F67 /* Acessoryies */,
+				E3F55B6A1F450E3200E09F67 /* Home */,
 				E35B23301F4226810029833C /* Main.storyboard */,
 				E35B23361F4226810029833C /* Assets.xcassets */,
 				E35B23381F4226810029833C /* LaunchScreen.storyboard */,
@@ -91,6 +88,25 @@
 				E35B23451F4229030029833C /* HomeKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E3F55B6A1F450E3200E09F67 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E326DC4A1F42F7D30061D692 /* AddHomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E3F55B6B1F450E5500E09F67 /* Acessoryies */ = {
+			isa = PBXGroup;
+			children = (
+				E35B23411F4228B10029833C /* DiscoveryViewController.swift */,
+				E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */,
+				E326DC4C1F42FB8C0061D692 /* ServicesViewController.swift */,
+				E3FC33381F4346BB007AB485 /* CharacteristicsViewController.swift */,
+			);
+			path = Acessoryies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
