@@ -53,13 +53,15 @@ class DiscoveryViewController: UIViewController, UITableViewDataSource, UITableV
                 if error != nil {
                     print("We couldn't assign accessory \(error)")
                 }else{
-                    self.homeManager.primaryHome?.assignAccessory(accessory, to: room, completionHandler: { (error) in
-                        if error != nil {
-                            print("We have an erroro with assigning the accessory to a room: \(error)")
-                        }else{
-                            print("accessory assigned to \(room.name)")
-                        }
-                    })
+                    if accessory.room != room {
+                        self.homeManager.primaryHome?.assignAccessory(accessory, to: room, completionHandler: { (error) in
+                            if error != nil {
+                                print("We have an erroro with assigning the accessory to a room: \(error)")
+                            }else{
+                                print("accessory assigned to \(room.name)")
+                            }
+                        })
+                    }
                 }
             })
         }else{
