@@ -39,6 +39,15 @@ class CharacteristicsViewController: UIViewController {
                 }
             }
         }
+        
+        for item in selectedService.characteristics {
+            let characteristic = item as HMCharacteristic
+            if characteristic.characteristicType == HMCharacteristicTypeCurrentLockMechanismState {
+                
+            }
+        }
+        
+        
         serviceNameLbl.text = selectedService.name
     }
     
@@ -46,32 +55,34 @@ class CharacteristicsViewController: UIViewController {
         switch serviceStateSegmentControl.selectedSegmentIndex
         {
         case 0:
-            
                 for item in selectedService.characteristics {
                     print("Iteration")
                     let characteristic = item as HMCharacteristic
-                    characteristic.writeValue(0, completionHandler: { (error) in
-                        if error != nil {
-                            print("Couldn't set a target value \(error)")
-                        }else{
-                            print("We set a value!")
-                        }
-                    })
+                    
+                    if characteristic.characteristicType == HMCharacteristicTypeTargetLockMechanismState { // To check to see if the characteristic we found is a target lock.
+                        characteristic.writeValue(0, completionHandler: { (error) in
+                            if error != nil{
+                                print("Couldn't set the target lock value to 0 \(String(describing: error))")
+                            }else{
+                                print("We set the target value to 0")
+                            }
+                        })
+                    }
                 }
-
-            
-            
         case 1:
             for item in selectedService.characteristics {
                 print("Iteration")
                 let characteristic = item as HMCharacteristic
-                characteristic.writeValue(1, completionHandler: { (error) in
-                    if error != nil {
-                        print("Couldn't set a target value \(error)")
-                    }else{
-                        print("We set a value!")
-                    }
-                })
+                
+                if characteristic.characteristicType == HMCharacteristicTypeTargetLockMechanismState { // To check to see if the characteric we found is a target lock.
+                    characteristic.writeValue(1, completionHandler: { (error) in
+                        if error != nil {
+                            print("Couldn't set the target lock value to 1 \(String(describing: error))")
+                        }else{
+                            print("We set the target value to 1")
+                        }
+                    })
+                }
             }
         default:
             break
