@@ -82,6 +82,8 @@ class CharacteristicsViewController: UIViewController {
                             print("We set the target value to 1")
                         }
                     })
+                    
+                    
                 }
             }
         default:
@@ -89,13 +91,21 @@ class CharacteristicsViewController: UIViewController {
         }
     }
     
-    // MARK: Updating
+    @IBAction func unPairButtonTapped(_ sender: Any) {
+        homeManager.primaryHome!.removeAccessory(selectedAccessory) { (error) in
+            if error != nil {
+                print("Couldn't remove accessory \(String(describing: error))")
+            }else{
+                print("Successfully removed accessory")
+            }
+        }
+        performSegue(withIdentifier: "backToMyAccessoriesSegue", sender: nil)
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
     /*
     // MARK: - Navigation
