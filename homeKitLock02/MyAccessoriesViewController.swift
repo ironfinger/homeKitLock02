@@ -15,7 +15,7 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     
     let homeManager = HMHomeManager()
     
-    var accessories = [HMAccessory]()
+    var accessories = [HMAccessory]() // May want to add a feature to have live updates of when an accessory becomes reachable or not
     var amountOfAccessories = 0
     
     // MARK: View setup.

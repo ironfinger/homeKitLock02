@@ -47,21 +47,22 @@ class DiscoveryViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let accessory = accessories[indexPath.row] as HMAccessory
         print("Pairing \(accessory.name)")
-        // browser.stopSearchingForNewAccessories() // Stops searching for new accessories as soon as somebody finds an accessory they want.
+        browser.stopSearchingForNewAccessories() // Stops searching for new accessories as soon as somebody finds an accessory they want.
         if let room = homeManager.primaryHome?.rooms.first as HMRoom? {
             homeManager.primaryHome?.addAccessory(accessory, completionHandler: { (error) in
                 if error != nil {
                     print("We couldn't assign accessory \(error)")
                 }else{
-                    self.homeManager.primaryHome?.assignAccessory(accessory, to: room, completionHandler: { (error) in
-                        if error != nil {
-                            print("We have an erroro with assigning the accessory to a room: \(error)")
-                        }else{
-                            print("accessory assigned to \(room.name)")
-                        }
-                    })
+                    //self.homeManager.primaryHome?.assignAccessory(accessory, to: room, completionHandler: { (error) in
+                        //if error != nil {
+                        //    print("We have an erroro with assigning the accessory to a room: \(error)")
+                       // }else{
+                       //     print("accessory assigned to \(room.name)")
+                       // }
+                   // })
                 }
             })
+            
         }else{
             self.performSegue(withIdentifier: "discoveryToAddHomeSegue", sender: nil)
         }
