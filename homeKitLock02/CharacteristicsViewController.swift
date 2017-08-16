@@ -50,7 +50,7 @@ class CharacteristicsViewController: UIViewController, HMAccessoryDelegate {
             if characteristic.characteristicType == HMCharacteristicTypeCurrentLockMechanismState {
                 characteristic.readValue(completionHandler: { (error) in
                     let theValue = String(describing: characteristic.value!)
-                    if theValue == "0" {
+                    if theValue == "1" {
                         self.serviceStateLbl.text = "Locked"
                         self.serviceStateSegmentControl.selectedSegmentIndex = 1
                     }else{
@@ -116,11 +116,11 @@ class CharacteristicsViewController: UIViewController, HMAccessoryDelegate {
             characteristic.readValue(completionHandler: { (error) in
                 let theValue = String(describing: characteristic.value!)
                 print("the value \(theValue)")
-                if theValue == "0"{
-                    print("The value is 0")
+                if theValue == "1"{
+                    print("The value is 1") // 1 stands for Locked.
                     self.serviceStateLbl.text = "Locked"
-                }else if theValue == "1"{
-                    print("The value is 1")
+                }else if theValue == "0"{
+                    print("The value is 0") // 0 stands for Un-Locked
                     self.serviceStateLbl.text = "Un-Locked"
                 }
             })
