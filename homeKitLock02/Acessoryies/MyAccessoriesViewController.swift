@@ -12,6 +12,7 @@ import HomeKit
 class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HMAccessoryBrowserDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var pickerView: UIPickerView!
     
     let homeManager = HMHomeManager()
     
@@ -60,6 +61,10 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
         print(homeManager.primaryHome!.accessories[indexPath.row])
         self.performSegue(withIdentifier: "ServicesVCSegue", sender: indexPath.row)
     }
+    
+    // MARK: Actions
+    
+    
     
     // MARK: Segue
     
