@@ -12,6 +12,8 @@
 		E33CA9431F4586EE0064A082 /* MyHomesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA9421F4586EE0064A082 /* MyHomesViewController.swift */; };
 		E33CA9451F458BE20064A082 /* HomeSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA9441F458BE20064A082 /* HomeSettingsViewController.swift */; };
 		E33CA9471F45CA5C0064A082 /* SecondAddHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA9461F45CA5C0064A082 /* SecondAddHomeViewController.swift */; };
+		E33CA9491F45CC7A0064A082 /* AddRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA9481F45CC7A0064A082 /* AddRoomViewController.swift */; };
+		E33CA94B1F46245E0064A082 /* RoomSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CA94A1F46245E0064A082 /* RoomSettingsViewController.swift */; };
 		E35B232D1F4226810029833C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B232C1F4226810029833C /* AppDelegate.swift */; };
 		E35B232F1F4226810029833C /* MyAccessoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */; };
 		E35B23321F4226810029833C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E35B23301F4226810029833C /* Main.storyboard */; };
@@ -29,6 +31,8 @@
 		E33CA9421F4586EE0064A082 /* MyHomesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHomesViewController.swift; sourceTree = "<group>"; };
 		E33CA9441F458BE20064A082 /* HomeSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSettingsViewController.swift; sourceTree = "<group>"; };
 		E33CA9461F45CA5C0064A082 /* SecondAddHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondAddHomeViewController.swift; sourceTree = "<group>"; };
+		E33CA9481F45CC7A0064A082 /* AddRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRoomViewController.swift; sourceTree = "<group>"; };
+		E33CA94A1F46245E0064A082 /* RoomSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomSettingsViewController.swift; sourceTree = "<group>"; };
 		E35B23291F4226810029833C /* homeKitLock02.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = homeKitLock02.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E35B232C1F4226810029833C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E35B232E1F4226810029833C /* MyAccessoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAccessoriesViewController.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 				E35B232C1F4226810029833C /* AppDelegate.swift */,
 				E3F55B6B1F450E5500E09F67 /* Acessoryies */,
 				E3F55B6A1F450E3200E09F67 /* Home */,
+				E33CA9481F45CC7A0064A082 /* AddRoomViewController.swift */,
+				E33CA94A1F46245E0064A082 /* RoomSettingsViewController.swift */,
 				E35B23301F4226810029833C /* Main.storyboard */,
 				E35B23361F4226810029833C /* Assets.xcassets */,
 				E35B23381F4226810029833C /* LaunchScreen.storyboard */,
@@ -201,6 +207,8 @@
 				E3FC33391F4346BB007AB485 /* CharacteristicsViewController.swift in Sources */,
 				E33CA9451F458BE20064A082 /* HomeSettingsViewController.swift in Sources */,
 				E35B232D1F4226810029833C /* AppDelegate.swift in Sources */,
+				E33CA9491F45CC7A0064A082 /* AddRoomViewController.swift in Sources */,
+				E33CA94B1F46245E0064A082 /* RoomSettingsViewController.swift in Sources */,
 				E35B23421F4228B10029833C /* DiscoveryViewController.swift in Sources */,
 				E33CA9431F4586EE0064A082 /* MyHomesViewController.swift in Sources */,
 				E33CA9471F45CA5C0064A082 /* SecondAddHomeViewController.swift in Sources */,

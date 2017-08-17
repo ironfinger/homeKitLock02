@@ -9,7 +9,7 @@
 import UIKit
 import HomeKit
 
-class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HMAccessoryBrowserDelegate {
+class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, HMAccessoryBrowserDelegate, UIPickerViewDataSource, UIPickerViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
@@ -18,6 +18,7 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     
     var accessories = [HMAccessory]()
     var amountOfAccessories = 0
+    var selectedHome = 0
     
     // MARK: View setup.
     
@@ -26,6 +27,10 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
         // Do any additional setup after loading the view, typically from a nib.
         tableView.dataSource = self
         tableView.delegate = self
+        
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        
         tableView.reloadData()
     }
     
@@ -38,14 +43,14 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var totalAccessories = 0
         if homeManager.primaryHome?.accessories.count != nil {
-            totalAccessories = homeManager.primaryHome!.accessories.count
+            totalAccessories = homeManager.homes[selectedHome].accessories.count
         }
         return totalAccessories
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let accessory = homeManager.primaryHome!.accessories[indexPath.row]
+        let accessory = homeManager.homes[selectedHome].accessories[indexPath.row]
         let reachable = accessory.isReachable
         //let uuid:String = String(accessory.uniqueIdentifier)
         
@@ -58,8 +63,30 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(homeManager.primaryHome!.accessories[indexPath.row])
+        print(homeManager.homes[selectedHome].accessories[indexPath.row])
         self.performSegue(withIdentifier: "ServicesVCSegue", sender: indexPath.row)
+    }
+    
+    // MARK: Picker View
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        let homes = homeManager.homes
+        return homes.count
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        let home = homeManager.homes[row]
+        return home.name
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        print("Selected")
+        selectedHome = row
+        tableView.reloadData()
     }
     
     // MARK: Actions

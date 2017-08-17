@@ -111,6 +111,10 @@ class HomeSettingsViewController: UIViewController, UITableViewDataSource, UITab
         }
     }
     
+    @IBAction func addRoomBtnTapped(_ sender: Any) {
+        performSegue(withIdentifier: "AddRoomSegue", sender: nil)
+    }
+    
     // MARK: Updates
     
     func homeManagerDidUpdatePrimaryHome(_ manager: HMHomeManager) {
@@ -124,6 +128,15 @@ class HomeSettingsViewController: UIViewController, UITableViewDataSource, UITab
         }
         
         navBar.title = homeManager.homes[selectedHomeIndex].name
+    }
+    
+    // MARK: Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddRoomSegue" {
+            let nextVC = segue.destination as? AddRoomViewController
+            nextVC?.chosenHomeIndex = selectedHomeIndex
+        }
     }
     
     override func didReceiveMemoryWarning() {
