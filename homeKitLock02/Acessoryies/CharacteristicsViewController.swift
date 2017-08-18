@@ -119,9 +119,11 @@ class CharacteristicsViewController: UIViewController, HMAccessoryDelegate {
                 if theValue == "1"{
                     print("The value is 1") // 1 stands for Locked.
                     self.serviceStateLbl.text = "Locked"
+                    self.serviceStateSegmentControl.selectedSegmentIndex = 1
                 }else if theValue == "0"{
                     print("The value is 0") // 0 stands for Un-Locked
                     self.serviceStateLbl.text = "Un-Locked"
+                    self.serviceStateSegmentControl.selectedSegmentIndex = 0
                 }
             })
         }
