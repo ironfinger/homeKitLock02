@@ -17,6 +17,7 @@ class DiscoveryViewController: UIViewController, UITableViewDataSource, UITableV
     let browser = HMAccessoryBrowser()
     
     var accessories = [HMAccessory]()
+    var selectedHomeIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,26 +49,35 @@ class DiscoveryViewController: UIViewController, UITableViewDataSource, UITableV
         let accessory = accessories[indexPath.row] as HMAccessory
         print("Pairing \(accessory.name)")
         // browser.stopSearchingForNewAccessories() // Stops searching for new accessories as soon as somebody finds an accessory they want.
-        if let room = homeManager.primaryHome?.rooms.first as HMRoom? {
-            homeManager.primaryHome?.addAccessory(accessory, completionHandler: { (error) in
-                if error != nil {
-                    print("We couldn't assign accessory \(error)")
-                }else{
-                    if accessory.room != room {
-                        self.homeManager.primaryHome?.assignAccessory(accessory, to: room, completionHandler: { (error) in
-                            if error != nil {
-                                print("We have an erroro with assigning the accessory to a room: \(error)")
-                            }else{
-                                print("accessory assigned to \(room.name)")
-                            }
-                        })
-                    }
-                }
-            })
-        }else{
-            self.performSegue(withIdentifier: "discoveryToAddHomeSegue", sender: nil)
+        
+        homeManager.homes[selectedHomeIndex].addAccessory(accessory) { (error) in
+            if error != nil {
+                print("We couldn't assign accessory \(error)")
+            }else{
+                
+            }
         }
     }
+    
+        //if let room = homeManager.homes[selectedHomeIndex].rooms.first as HMRoom? {
+          //  homeManager.primaryHome?.addAccessory(accessory, completionHandler: { (error) in
+          //      if error != nil {
+          //          print("We couldn't assign accessory \(error)")
+          //      }else{
+          //          if accessory.room != room {
+          //                  if error != nil {
+         //                       print("We have an erroro with assigning the accessory to a room: \(error)")
+          //
+          //                  }else{
+          //                      print("accessory assigned to \(room.name)")
+       //                     }
+        //                })
+         //           }
+       //         }
+      //      })
+  //      }else{
+//            self.performSegue(withIdentifier: "firstRoomDoesn'tExist", sender: nil)
+ //   }
     
     func accessoryBrowser(_ browser: HMAccessoryBrowser, didFindNewAccessory accessory: HMAccessory) {
         accessories.append(accessory)

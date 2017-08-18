@@ -99,6 +99,10 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
         if segue.identifier == "ServicesVCSegue" {
             let nextVC = segue.destination as? ServicesViewController
             nextVC?.selectedAccessoryIndex = sender as! Int
+            nextVC?.selectedHome = selectedHome
+        }else if segue.identifier == "addAccessorySegue" {
+            let nextVC = segue.destination as? DiscoveryViewController
+            nextVC?.selectedHomeIndex = selectedHome
         }
     }
     

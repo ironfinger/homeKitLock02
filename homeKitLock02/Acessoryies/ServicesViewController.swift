@@ -19,6 +19,7 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
     var selectedAccessory = HMAccessory()
     var services = [HMService]()
     var selectedAccessoryIndex = 0
+    var selectedHome = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +29,9 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        for item in homeManager.primaryHome!.accessories {
-            if item.name == homeManager.primaryHome!.accessories[selectedAccessoryIndex].name{
+        print("Services View Controler")
+        for item in homeManager.homes[selectedHome].accessories {
+            if item.name == homeManager.homes[selectedHome].accessories[selectedAccessoryIndex].name{
                 selectedAccessory = item
                 for i in item.services  {
                     print("Iteration \(i.name)")
@@ -58,12 +60,27 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
         performSegue(withIdentifier: "CharacteristicVCSegue", sender: indexPath.row)
     }
     
+    //MARK: Actions
+    
+    @IBAction func editAccessory(_ sender: Any) {
+        print("Perform")
+        performSegue(withIdentifier: "accessorySettingsSegue", sender: nil)
+    }
+    
+    
     // MARK: Segue
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextVC = segue.destination as? CharacteristicsViewController
-        nextVC?.selectedAccessoryIndex = selectedAccessoryIndex
-        nextVC?.selectedServiceIndex = sender as! Int
+        if segue.identifier == "CharacteristicVCSegue" {
+            let nextVC = segue.destination as? CharacteristicsViewController
+            nextVC?.selectedAccessoryIndex = selectedAccessoryIndex
+            nextVC?.selectedServiceIndex = sender as! Int
+        }else if segue.identifier == "accessorySettingsSegue" {
+            let nextVC = segue.destination as? AccessorySettingsViewController
+            nextVC?.selectedAccessory = selectedAccessory
+            nextVC?.selectedHomeIndex = selectedHome
+            //nextVC?.selectedAccessoryIndex = selectedAccessoryIndex
+        }
     }
     
     override func didReceiveMemoryWarning() {
