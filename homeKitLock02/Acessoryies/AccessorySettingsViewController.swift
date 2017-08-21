@@ -44,20 +44,20 @@ class AccessorySettingsViewController: UIViewController, UITableViewDataSource, 
     // MARK: Table View
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let rooms = homeManager.homes[selectedHomeIndex].rooms
-        return rooms.count
+        //let rooms = homeManager.homes[selectedHomeIndex].rooms
+        return 5
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        let rooms = homeManager.homes[selectedHomeIndex].rooms
-        let room = rooms[indexPath.row]
-        cell.textLabel?.text = room.name
+        //let rooms = homeManager.homes[selectedHomeIndex].rooms
+        //let room = rooms[indexPath.row]
+        cell.textLabel?.text = "room.name"
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let accessory = homeManager.homes[selectedHomeIndex].accessories[selectedAccessoryIndex]
+       // let accessory = homeManager.homes[selectedHomeIndex].accessories[selectedAccessoryIndex]
         
     }
     
