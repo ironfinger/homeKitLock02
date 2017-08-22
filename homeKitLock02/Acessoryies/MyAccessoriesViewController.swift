@@ -14,7 +14,7 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var pickerView: UIPickerView!
     
-    let homeManager = HMHomeManager()
+    let homeManager = HMHomeManager() // This is pretty much required by every single HomeKit enabled view controller.
     
     var accessories = [HMAccessory]()
     var amountOfAccessories = 0
@@ -35,7 +35,7 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        tableView.reloadData()
+        tableView.reloadData() // The table is refreshed each time the view controller appears so that when an accessory is added to that home, it will then show that on the table view.
     }
     
     // MARK: Table View
