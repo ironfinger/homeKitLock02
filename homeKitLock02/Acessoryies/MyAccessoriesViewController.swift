@@ -42,10 +42,16 @@ class MyAccessoriesViewController: UIViewController, UITableViewDataSource, UITa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         var totalAccessories = 0
-        if homeManager.primaryHome?.accessories.count != nil {
+        if homeManager.homes[selectedHome].accessories.count != nil {
             totalAccessories = homeManager.homes[selectedHome].accessories.count
         }
         return totalAccessories
+        
+        //var totalAccessories = 0
+        //if homeManager.primaryHome?.accessories.count != nil {
+        //    totalAccessories = homeManager.homes[selectedHome].accessories.count
+        //}
+        //return totalAccessories
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
