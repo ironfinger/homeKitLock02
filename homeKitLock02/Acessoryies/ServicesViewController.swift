@@ -77,9 +77,12 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
             nextVC?.selectedServiceIndex = sender as! Int
         }else if segue.identifier == "accessorySettingsSegue" {
             let nextVC = segue.destination as? AccessorySettingsViewController
+            nextVC?.rooms.removeAll()
+            for item in homeManager.homes[selectedHome].rooms {
+                nextVC?.rooms.append(item)
+            }
             nextVC?.selectedAccessory = selectedAccessory
-            nextVC?.selectedHomeIndex = selectedHome
-            //nextVC?.selectedAccessoryIndex = selectedAccessoryIndex
+            nextVC?.selelectedHomeIndex = selectedHome
         }
     }
     

@@ -19,8 +19,9 @@ class AccessorySettingsViewController: UIViewController, UITableViewDataSource, 
     let homeManager = HMHomeManager()
     
     var selectedAccessory = HMAccessory()
-    var selectedAccessoryIndex = 0
-    var selectedHomeIndex = 0
+    var selelectedHomeIndex = 0
+    
+    var rooms = [HMRoom]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,12 +33,7 @@ class AccessorySettingsViewController: UIViewController, UITableViewDataSource, 
     
     override func viewWillAppear(_ animated: Bool) {
         subView.alpha = 0
-        accessoryNameLbl.text = selectedAccessory.name
-        if selectedAccessory.room?.name == nil {
-            currentRoomLbl.text = "please assign to a room"
-        }else{
-            currentRoomLbl.text = "Current Room \(selectedAccessory.room?.name)"
-        }
+        
         tableView.reloadData()
     }
     
@@ -45,20 +41,24 @@ class AccessorySettingsViewController: UIViewController, UITableViewDataSource, 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         //let rooms = homeManager.homes[selectedHomeIndex].rooms
-        return 5
+        return rooms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell()
-        //let rooms = homeManager.homes[selectedHomeIndex].rooms
-        //let room = rooms[indexPath.row]
-        cell.textLabel?.text = "room.name"
+        let room = rooms[indexPath.row]
+        cell.textLabel?.text = room.name
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       // let accessory = homeManager.homes[selectedHomeIndex].accessories[selectedAccessoryIndex]
-        
+        let room = rooms[indexPath.row]
+        let home = homeManager.homes[selelectedHomeIndex]
+        home.assignAccessory(selectedAccessory, to: room) { (error) in
+            if error != nil {
+                print("We couldn't assign the accessory to \(room.name)")
+            }
+        }
     }
     
     // MARK: ACTIONS
