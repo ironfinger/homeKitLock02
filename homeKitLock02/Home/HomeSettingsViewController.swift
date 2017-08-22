@@ -20,6 +20,7 @@ class HomeSettingsViewController: UIViewController, UITableViewDataSource, UITab
     let homeManager = HMHomeManager()
     
     var selectedHomeIndex = 0
+    var selectedRoomIndex = 0
     var homes = [HMHome]()
     var homeAmount = 0
     
@@ -75,6 +76,11 @@ class HomeSettingsViewController: UIViewController, UITableViewDataSource, UITab
         let room = home.rooms[indexPath.row]
         cell.textLabel?.text = room.name
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectedRoomIndex = indexPath.row
+        performSegue(withIdentifier: "roomSettingsViewController", sender: nil)
     }
     
     // MARK: IBActions
@@ -136,6 +142,14 @@ class HomeSettingsViewController: UIViewController, UITableViewDataSource, UITab
         if segue.identifier == "AddRoomSegue" {
             let nextVC = segue.destination as? AddRoomViewController
             nextVC?.chosenHomeIndex = selectedHomeIndex
+        }else if segue.identifier == "roomSettingsViewController" {
+            let nextVC = segue.destination as? RoomSettingsViewController
+            nextVC?.homeIndex = selectedHomeIndex
+            nextVC?.roomIndex = selectedRoomIndex
+            nextVC?.roomAccessories.removeAll()
+            for item in homeManager.homes[selectedHomeIndex].rooms[selectedRoomIndex].accessories {
+                nextVC?.roomAccessories.append(item)
+            }
         }
     }
     

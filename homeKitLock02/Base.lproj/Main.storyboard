@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -517,7 +518,7 @@
                         <outlet property="primaryHomeSwitch" destination="Sce-vr-IKS" id="vSa-Nw-Rpc"/>
                         <outlet property="setHomeNameTextField" destination="a77-i7-8uJ" id="Hum-T6-9Rt"/>
                         <outlet property="tableView" destination="2Yb-he-0AT" id="n5A-Qc-vVF"/>
-                        <segue destination="Rzh-kW-dMV" kind="show" id="zJx-DJ-4jW"/>
+                        <segue destination="Rzh-kW-dMV" kind="show" identifier="roomSettingsViewController" id="zJx-DJ-4jW"/>
                         <segue destination="ZQC-Ir-GRU" kind="show" identifier="AddRoomSegue" id="23J-K1-Wr8"/>
                     </connections>
                 </viewController>
@@ -567,10 +568,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1i6-2w-bbr"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="moh-zk-BWv" id="psr-PE-O46"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fV7-JG-mah" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1813.5999999999999" y="-520.38980509745136"/>
+            <point key="canvasLocation" x="1842" y="-520"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="8pp-Kd-LBc">
@@ -631,7 +635,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="zbf-CF-0Re"/>
+        <segue reference="23J-K1-Wr8"/>
         <segue reference="Bzi-ce-YKT"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -7,13 +7,36 @@
 //
 
 import UIKit
+import HomeKit
 
-class RoomSettingsViewController: UIViewController {
+class RoomSettingsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet weak var tableView: UITableView!
+    
+    let homeManager = HMHomeManager()
+    
+    var homeIndex = 0
+    var roomIndex = 0
+    var roomAccessories = [HMAccessory]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+    
+    // MARK: TableView
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return roomAccessories.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = UITableViewCell()
+        let accessory = roomAccessories[indexPath.row]
+        cell.textLabel?.text = accessory.name
+        return cell
     }
 
     override func didReceiveMemoryWarning() {
