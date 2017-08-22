@@ -30,6 +30,7 @@ class ServicesViewController: UIViewController, UITableViewDataSource, UITableVi
     
     override func viewDidAppear(_ animated: Bool) {
         print("Services View Controler")
+        services.removeAll()
         for item in homeManager.homes[selectedHome].accessories {
             if item.name == homeManager.homes[selectedHome].accessories[selectedAccessoryIndex].name{
                 selectedAccessory = item
